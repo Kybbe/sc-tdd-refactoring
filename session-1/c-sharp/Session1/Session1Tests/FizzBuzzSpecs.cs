@@ -5,18 +5,23 @@ namespace Session1Tests;
 [TestClass]
 public class FizzBuzzSpecs
 {
-    [DataTestMethod]
-    [DataRow(1)]
-    [DataRow(2)]
-    [DataRow(4)]
-    [DataRow(7)]
-    [DataRow(8)]
-    [DataRow(11)]
-    [DataRow(13)]
-    [DataRow(14)]
-    [DataRow(16)]
-    [DataRow(17)]
-    [DataRow(19)]
+    public static IEnumerable<object[]> CommonNumbers => new[]
+{
+        new object[] { 1 },
+        new object[] { 2 },
+        new object[] { 4 },
+        new object[] { 7 },
+        new object[] { 8 },
+        new object[] { 11 },
+        new object[] { 13 },
+        new object[] { 14 },
+        new object[] { 16 },
+        new object[] { 17 },
+        new object[] { 19 },
+    };
+
+    [TestMethod]
+    [DynamicData(nameof(CommonNumbers))]
     public void GetNumber_GivenNotMultipleOfThreeOrFive_ReturnsThatNumber(int number)
     {
         var expected = $"{number}";
@@ -68,18 +73,8 @@ public class FizzBuzzSpecs
         Assert.AreEqual(expected, result);
     }
 
-    [DataTestMethod]
-    [DataRow(1)]
-    [DataRow(2)]
-    [DataRow(4)]
-    [DataRow(7)]
-    [DataRow(8)]
-    [DataRow(11)]
-    [DataRow(13)]
-    [DataRow(14)]
-    [DataRow(16)]
-    [DataRow(17)]
-    [DataRow(19)]
+    [TestMethod]
+    [DynamicData(nameof(CommonNumbers))]
     public void PrintNumber_GivenNotMultipleOfThreeOrFive_PrintsThatNumber(int number)
     {
         StringWriter stringWriter = new StringWriter();
