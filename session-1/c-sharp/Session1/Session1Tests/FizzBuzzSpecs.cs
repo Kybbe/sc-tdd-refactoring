@@ -54,4 +54,17 @@ public class FizzBuzzSpecs
 
         Assert.AreEqual(expected, result);
     }
+
+
+    [DataTestMethod]
+    [DataRow(15)]
+    [DataRow(30)]
+    public void GetNumber_GivenMultipleOfThreeAndFive_ReturnsFizzBuzz(int number)
+    {
+        var expected = "FizzBuzz";
+
+        var result = FizzBuzz.GetNumber(number);
+
+        Assert.AreEqual(expected, result);
+    }
 }
