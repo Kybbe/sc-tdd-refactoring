@@ -4,7 +4,7 @@ public static class FizzBuzz
 {
     public static string GetNumber(int number)
     {
-        if (number % 3 == 0 && number % 5 == 0)
+        if (number % 15 == 0)
         {
             return "FizzBuzz";
         }
