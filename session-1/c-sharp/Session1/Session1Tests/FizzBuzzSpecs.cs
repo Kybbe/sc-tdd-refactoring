@@ -67,4 +67,28 @@ public class FizzBuzzSpecs
 
         Assert.AreEqual(expected, result);
     }
+
+    [DataTestMethod]
+    [DataRow(1)]
+    [DataRow(2)]
+    [DataRow(4)]
+    [DataRow(7)]
+    [DataRow(8)]
+    [DataRow(11)]
+    [DataRow(13)]
+    [DataRow(14)]
+    [DataRow(16)]
+    [DataRow(17)]
+    [DataRow(19)]
+    public void PrintNumber_GivenNotMultipleOfThreeOrFive_PrintsThatNumber(int number)
+    {
+        StringWriter stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var expected = number.ToString();
+
+        FizzBuzz.PrintNumber(number);
+        var actuall = stringWriter.ToString().Trim();
+
+        Assert.AreEqual(expected, actuall);
+    }
 }
