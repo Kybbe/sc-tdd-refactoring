@@ -4,6 +4,6 @@ public static class FizzBuzz
 {
     public static string GetNumber(int number)
     {
-        throw new NotImplementedException();
+        return number.ToString();
     }
 }
