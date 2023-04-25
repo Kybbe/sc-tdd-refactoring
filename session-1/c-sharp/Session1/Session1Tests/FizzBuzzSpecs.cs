@@ -35,6 +35,12 @@ public class FizzBuzzSpecs
         new object[] { 10 },
         new object[] { 20 },
     };
+    public static IEnumerable<object[]> FizzBuzzNumbers => new[]
+{
+        new object[] { 15 },
+        new object[] { 30 },
+        new object[] { 45 },
+    };
 
 
     [TestMethod]
@@ -118,6 +124,20 @@ public class FizzBuzzSpecs
         StringWriter stringWriter = new StringWriter();
         Console.SetOut(stringWriter);
         var expected = "Buzz";
+
+        FizzBuzz.PrintNumber(number);
+        var actuall = stringWriter.ToString().Trim();
+
+        Assert.AreEqual(expected, actuall);
+    }
+
+    [TestMethod]
+    [DynamicData(nameof(FizzBuzzNumbers))]
+    public void PrintNumber_GivenMultipleOfThreeAndFive_PrintsFizzBuzz(int number)
+    {
+        StringWriter stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var expected = "FizzBuzz";
 
         FizzBuzz.PrintNumber(number);
         var actuall = stringWriter.ToString().Trim();
