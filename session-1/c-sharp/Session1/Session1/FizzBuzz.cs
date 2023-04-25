@@ -24,6 +24,12 @@ public static class FizzBuzz
 
     public static void PrintNumber(int number)
     {
-        Console.WriteLine(number);
+        if (number % 3 == 0)
+        {
+            Console.WriteLine("Fizz");
+        } else
+        {
+            Console.WriteLine(number);
+        }
     }
 }

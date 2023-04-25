@@ -21,7 +21,7 @@ public class FizzBuzzSpecs
     };
 
     public static IEnumerable<object[]> FizzNumbers => new[]
-{
+    {
         new object[] { 3 },
         new object[] { 6 },
         new object[] { 9 },
