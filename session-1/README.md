@@ -26,4 +26,65 @@ Write a function that takes a number as an argument and, based on the same scena
 
 ## Task 3: 
 Write a function that takes user input and prints that number, based on the same scenarios described above.
-   - If user input is not a number, throw an exception with the message: "{inputNumber} is not a number".
+   - If user input is not a number, throw an exception with the message: `"{inputNumber} is not a number"`.
+
+# Cheat Sheet
+
+## Mocking Console
+
+```csharp
+public void LogMessage(Service service, string message)
+{
+    Console.WriteLine($"Service {service.name}: {message}");
+}
+```
+
+```csharp
+[TestMethod]
+public void LogMessage_WritesMessageToConsole()
+{
+    StringWriter stringWriter = new StringWriter();
+    Console.SetOut(stringWriter);
+    var expected = "Service AuthService: Login successful";
+
+    LogMessage("AuthService", "Login successful");
+    var actuall = stringWriter.ToString().Trim();
+
+    Assert.AreEqual(expected, actuall);
+}
+```
+
+## Using parametrized / data-driven tests
+
+If you need to execute the same test with different inputs, instead of writing multiple tests, you can use parametrized tests, by adding `[DataTestMethod]` attribute instead of `TestMethod` and adding multiple `[DataRow]` attributes that provide input data to the test. This will allow the test to run multiple times with different inputs.
+
+```csharp
+[DataTestMethod]
+[DataRow(1)]
+[DataRow(2)]
+[DataRow(3)]
+public void TestName(int number)
+{
+    var result = GetNumber(number);
+    Assert.AreEqual(number, result);
+}
+```
+
+If you need your input data to be reusable, you can create a property of type `IEnumerable<object[]>`, and add `[DynamicData]` attribute to your test, to specify where your test will receive data from.
+
+```csharp
+public static IEnumerable<object[]> MyNumbers => new[]
+{
+    new object[] { 1 },
+    new object[] { 2 },
+    new object[] { 3 },
+};
+
+[TestMethod]
+[DynamicData(nameof(MyNumbers))]
+public void TestName(int number)
+{
+    var result = GetNumber(number);
+    Assert.AreEqual(number, result);
+}
+```
