@@ -1,7 +1,7 @@
 namespace Session1Tests;
 
 [TestClass]
-public class UnitTest1
+public class FizzBuzzSpecs
 {
     [TestMethod]
     public void TestMethod1()
