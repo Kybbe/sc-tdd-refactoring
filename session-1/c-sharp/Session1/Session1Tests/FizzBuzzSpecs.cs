@@ -144,4 +144,68 @@ public class FizzBuzzSpecs
 
         Assert.AreEqual(expected, actuall);
     }
+
+    [TestMethod]
+    [DynamicData(nameof(CommonNumbers))]
+    public void PrintInputNumber_GivenNotMultipleOfThreeOrFive_PrintsInputNumber(int number)
+    {
+        StringReader stringReader = new StringReader(number.ToString());
+        Console.SetIn(stringReader);
+        StringWriter stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var expected = number.ToString();
+
+        FizzBuzz.PrintInputNumber();
+        var actuall = stringWriter.ToString().Trim();
+
+        Assert.AreEqual(expected, actuall);
+    }
+
+    [TestMethod]
+    [DynamicData(nameof(FizzNumbers))]
+    public void PrintInputNumber_GivenMultipleOfThree_PrintsFizz(int number)
+    {
+        StringReader stringReader = new StringReader(number.ToString());
+        Console.SetIn(stringReader);
+        StringWriter stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var expected = "Fizz";
+
+        FizzBuzz.PrintInputNumber();
+        var actuall = stringWriter.ToString().Trim();
+
+        Assert.AreEqual(expected, actuall);
+    }
+
+    [DataTestMethod]
+    [DynamicData(nameof(BuzzNumbers))]
+    public void PrintInputNumber_GivenMultipleOfFive_PrintsBuzz(int number)
+    {
+        StringReader stringReader = new StringReader(number.ToString());
+        Console.SetIn(stringReader);
+        StringWriter stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var expected = "Buzz";
+
+        FizzBuzz.PrintInputNumber();
+        var actuall = stringWriter.ToString().Trim();
+
+        Assert.AreEqual(expected, actuall);
+    }
+
+    [DataTestMethod]
+    [DynamicData(nameof(FizzBuzzNumbers))]
+    public void PrintInputNumber_GivenMultipleOfThreeAndFive_PrintsFizzBuzz(int inputNumber)
+    {
+        StringReader stringReader = new StringReader(inputNumber.ToString());
+        Console.SetIn(stringReader);
+        StringWriter stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var expected = "FizzBuzz";
+
+        FizzBuzz.PrintInputNumber();
+        var actuall = stringWriter.ToString().Trim();
+
+        Assert.AreEqual(expected, actuall);
+    }
 }

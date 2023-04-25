@@ -28,4 +28,10 @@ public static class FizzBuzz
             Console.WriteLine(GetNumber(number));
         }
     }
+
+    public static void PrintInputNumber()
+    {
+        var inputNumber = Console.ReadLine();
+        Console.WriteLine(GetNumber(Convert.ToInt32(inputNumber)));
+    }
 }
