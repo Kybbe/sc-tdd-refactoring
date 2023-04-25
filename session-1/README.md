@@ -26,7 +26,7 @@ Write a function that takes a number as an argument and, based on the same scena
 
 ## Task 3: 
 Write a function that takes user input and prints that number, based on the same scenarios described above.
-   - If user input is not a number, throw an exception with the message: "{inputNumber} is not a number".
+   - If user input is not a number, throw an exception with the message: `"{inputNumber} is not a number"`.
 
 # Cheat Sheet
 
