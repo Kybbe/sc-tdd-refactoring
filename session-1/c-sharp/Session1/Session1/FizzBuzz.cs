@@ -24,21 +24,8 @@ public static class FizzBuzz
 
     public static void PrintNumber(int number)
     {
-        if (number % 15 == 0)
         {
-            Console.WriteLine("FizzBuzz");
-        }
-        else if (number % 3 == 0)
-        {
-            Console.WriteLine("Fizz");
-        }
-        else if (number % 5 == 0)
-        {
-            Console.WriteLine("Buzz");
-        }
-        else
-        {
-            Console.WriteLine(number);
+            Console.WriteLine(GetNumber(number));
         }
     }
 }
