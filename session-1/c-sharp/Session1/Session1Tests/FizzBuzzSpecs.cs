@@ -29,6 +29,14 @@ public class FizzBuzzSpecs
         new object[] { 18 },
     };
 
+    public static IEnumerable<object[]> BuzzNumbers => new[]
+{
+        new object[] { 5 },
+        new object[] { 10 },
+        new object[] { 20 },
+    };
+
+
     [TestMethod]
     [DynamicData(nameof(CommonNumbers))]
     public void GetNumber_GivenNotMultipleOfThreeOrFive_ReturnsThatNumber(int number)
@@ -51,10 +59,8 @@ public class FizzBuzzSpecs
         Assert.AreEqual(expected, result);
     }
 
-    [DataTestMethod]
-    [DataRow(5)]
-    [DataRow(10)]
-    [DataRow(20)]
+    [TestMethod]
+    [DynamicData(nameof(BuzzNumbers))]
     public void GetNumber_GivenMultipleOfFive_ReturnsBuzz(int number)
     {
         var expected = "Buzz";
@@ -98,6 +104,20 @@ public class FizzBuzzSpecs
         StringWriter stringWriter = new StringWriter();
         Console.SetOut(stringWriter);
         var expected = "Fizz";
+
+        FizzBuzz.PrintNumber(number);
+        var actuall = stringWriter.ToString().Trim();
+
+        Assert.AreEqual(expected, actuall);
+    }
+
+    [TestMethod]
+    [DynamicData(nameof(FizzNumbers))]
+    public void PrintNumber_GivenMultipleOfFive_PrintsBuzz(int number)
+    {
+        StringWriter stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var expected = "Buzz";
 
         FizzBuzz.PrintNumber(number);
         var actuall = stringWriter.ToString().Trim();
