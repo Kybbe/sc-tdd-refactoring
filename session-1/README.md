@@ -27,3 +27,27 @@ Write a function that takes a number as an argument and, based on the same scena
 ## Task 3: 
 Write a function that takes user input and prints that number, based on the same scenarios described above.
    - If user input is not a number, throw an exception with the message: "{inputNumber} is not a number".
+
+# Cheat Sheet
+
+## Mocking Console
+```csharp
+public void LogMessage(Service service, string message)
+{
+    Console.WriteLine($"Service {service.name}: {message}");
+}
+```
+```csharp
+[TestMethod]
+public void LogMessage_WritesMessageToConsole()
+{
+    StringWriter stringWriter = new StringWriter();
+    Console.SetOut(stringWriter);
+    var expected = "Service AuthService: Login successful";
+
+    LogMessage("AuthService", "Login successful");
+    var actuall = stringWriter.ToString().Trim();
+
+    Assert.AreEqual(expected, actuall);
+}
+```
