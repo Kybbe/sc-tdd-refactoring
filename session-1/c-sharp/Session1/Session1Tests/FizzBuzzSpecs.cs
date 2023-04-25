@@ -112,7 +112,7 @@ public class FizzBuzzSpecs
     }
 
     [TestMethod]
-    [DynamicData(nameof(FizzNumbers))]
+    [DynamicData(nameof(BuzzNumbers))]
     public void PrintNumber_GivenMultipleOfFive_PrintsBuzz(int number)
     {
         StringWriter stringWriter = new StringWriter();
