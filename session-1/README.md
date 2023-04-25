@@ -56,7 +56,10 @@ public void LogMessage_WritesMessageToConsole()
 
 ## Using parametrized / data-driven tests
 
-If you need to execute the same test with different inputs, instead of writing multiple tests, you can use parametrized tests, by adding `[DataTestMethod]` attribute instead of `TestMethod` and adding multiple `[DataRow]` attributes that provide input data to the test. This will allow the test to run multiple times with different inputs.
+If you need to execute the same test with different inputs, instead of writing multiple tests, you can use parametrized tests.
+
+### C#
+In C#, you can achieve this by adding `[DataTestMethod]` attribute instead of `TestMethod` and adding multiple `[DataRow]` attributes that provide input data to the test. This will allow the test to run multiple times with different inputs.
 
 ```csharp
 [DataTestMethod]
@@ -87,4 +90,17 @@ public void TestName(int number)
     var result = GetNumber(number);
     Assert.AreEqual(number, result);
 }
+```
+
+### JavaScript
+
+In JavaScript, you can create an array, and pass it to your tests by using `test.each(arrayName)`
+
+```js
+const myNumbers = [[1], [2], [3]];
+
+test.each(myNumbers)("test description", (number) => {
+  const result = getNumber(number);
+  expect(result).toEqual(number);
+});
 ```
