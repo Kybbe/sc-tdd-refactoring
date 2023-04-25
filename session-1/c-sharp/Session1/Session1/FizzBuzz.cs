@@ -1,5 +1,9 @@
 ﻿namespace Session1;
 
-public class FizzBuzz
+public static class FizzBuzz
 {
+    public static string GetNumber(int number)
+    {
+        throw new NotImplementedException();
+    }
 }
