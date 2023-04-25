@@ -24,6 +24,6 @@ public static class FizzBuzz
 
     public static void PrintNumber(int number)
     {
-        throw new NotImplementedException();
+        Console.WriteLine(number);
     }
 }
