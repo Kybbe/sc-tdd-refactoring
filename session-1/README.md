@@ -27,6 +27,40 @@ Write a function that takes a number as an argument and, based on the same scena
 ## Task 3: 
 Write a function that takes user input and prints that number, based on the same scenarios described above.
    - If user input is not a number, throw an exception with the message: `"{inputNumber} is not a number"`.
+   
+## Task 4:
+Refactor this code so that adding the new feature is very easy. "Make the change easy, then make the easy change".
+
+### New feature
+In addition to Multiples of 3 being "Fizz" and multiples of 5 being "Buzz":
+
+Multiples of 7 are “Whizz”
+Multiples of 11 are “Bang”
+
+That means for example that multiples of 3 & 7 are “FizzWhizz”, multiples of 5 & 11 are “BuzzBang” etc.
+
+### Sample output:
+```console
+- 1 => "1"
+- 2 => "2"
+- 3 => "Fizz"
+- 4 => "4"
+- 5 => "Buzz"
+- 6 => "Fizz"
+- 7 => "Whizz"
+- 8 => "8"
+- 9 => "Fizz"
+- 10 => "Buzz"
+- 11 => "Bang"
+- 12 => "Fizz"
+- 13 => "13"
+- 14 => "Whizz"
+- 15 => "FizzBuzz"
+- 21 => "FizzWhizz"
+- 55 => "BuzzBang"
+- 105 => "FizzBazzWhizz"
+- 1155 => "FizzBazzWhizzBang"
+```
 
 # Cheat Sheet
 
