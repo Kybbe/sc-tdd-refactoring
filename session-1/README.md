@@ -59,6 +59,8 @@ That means for example that multiples of 3 & 7 are “FizzWhizz”, multiples of
 - 21 => "FizzWhizz"
 - 55 => "BuzzBang"
 - 105 => "FizzBazzWhizz"
+- 165 => "FizzBuzzBang"
+- 231 => "FizzWhizzBang"
 - 1155 => "FizzBazzWhizzBang"
 ```
 
