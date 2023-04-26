@@ -32,6 +32,8 @@ Write a function that takes user input and prints that number, based on the same
 
 ## Mocking Console
 
+### C#
+
 ```csharp
 public void LogMessage(Service service, string message)
 {
@@ -53,6 +55,26 @@ public void LogMessage_WritesMessageToConsole()
     Assert.AreEqual(expected, actuall);
 }
 ```
+
+### JavaScript
+
+```js
+const logMessage (service, message) => {
+    console.log(`Service ${service.name}: ${message}`);
+}
+```
+
+```js
+test("logMessage writes message to the console", () => {
+    const consoleMock = jest.spyOn(console, "log");
+    const expected = "Service AuthService: Login successful";
+    
+    logMessage("AuthService", "Login successful");
+    
+    expect(consoleMock).toHaveBeenCalledWith(expected);
+});
+```
+
 
 ## Using parametrized / data-driven tests
 
