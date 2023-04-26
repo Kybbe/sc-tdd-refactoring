@@ -1,14 +1,22 @@
 const getNumber = (number) => {
-  if (number % 15 === 0) {
-    return "FizzBuzz";
-  }
+  let modifiedNumber = "";
+
   if (number % 3 === 0) {
-    return "Fizz";
+    modifiedNumber += "Fizz";
   }
   if (number % 5 === 0) {
-    return "Buzz";
+    modifiedNumber += "Buzz";
   }
-  return number;
+  if (number % 7 === 0) {
+    modifiedNumber += "Whizz";
+  }
+  if (number % 11 === 0) {
+    modifiedNumber += "Bang";
+  }
+  if (modifiedNumber === "") {
+    return number;
+  }
+  return modifiedNumber;
 };
 
 module.exports = getNumber;

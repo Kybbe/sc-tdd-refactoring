@@ -1,17 +1,28 @@
 const getNumber = require("./fizzBuzz");
 const printNumber = require("./printNumber");
 const printInputNumber = require("./printInputNumber");
-const readline = require("readline");
 
-const commonNumbers = [[1], [2], [4], [7], [8], [11], [13]];
+const commonNumbers = [[1], [2], [4], [8], [13]];
 const fizzNumbers = [[3], [6], [9], [12], [18]];
-const buzzNumbers = [[5], [10], [20]];
-const fizzBuzzNumbers = [[15], [30], [45]];
+const fizzBuzzNumbers = [[15], [30], [45], [60], [75]];
+const fizzBuzzWhizzNumbers = [[105]];
+const fizzBuzzWhizzBangNumbers = [[1155]];
+const fizzBuzzBangNumbers = [[165]];
+const fizzWhizzNumbers = [[21], [42]];
+const fizzWhizzBangNumbers = [[231]];
+const fizzBangNumbers = [[33]];
+const buzzNumbers = [[5], [10], [20], [25], [40]];
+const buzzWhizzNumbers = [[35]];
+const buzzWhizzBangNumbers = [[385]];
+const buzzBangNumbers = [[55]];
+const whizzNumbers = [[7], [14], [28]];
+const whizzBangNumbers = [[77]];
+const bangNumbers = [[11], [22], [44]];
 
 describe("fizzBuzz", () => {
   describe("getNumber", () => {
     test.each(commonNumbers)(
-      "returns the number as is when not divisible by 3 or 5",
+      "returns the number as is when not divisible by 3, 5, 7 or 11",
       (number) => {
         const expected = number;
 
@@ -43,10 +54,54 @@ describe("fizzBuzz", () => {
       }
     );
 
-    test.each(fizzBuzzNumbers)(
-      "returns 'FizzBuzz' when the number is divisible by 3 and 5",
+    test.each(whizzNumbers)(
+      "returns 'Whizz' when the number is divisible by 7",
       (number) => {
-        const expected = "FizzBuzz";
+        const expected = "Whizz";
+
+        const actual = getNumber(number);
+
+        expect(actual).toEqual(expected);
+      }
+    );
+
+    test.each(whizzNumbers)(
+      "returns 'Whizz' when the number is divisible by 7",
+      (number) => {
+        const expected = "Whizz";
+
+        const actual = getNumber(number);
+
+        expect(actual).toEqual(expected);
+      }
+    );
+
+    test.each(fizzBuzzWhizzNumbers)(
+      "returns 'FizzBuzzWhizz' when the number is divisible by 3 and 5",
+      (number) => {
+        const expected = "FizzBuzzWhizz";
+
+        const actual = getNumber(number);
+
+        expect(actual).toEqual(expected);
+      }
+    );
+
+    test.each(fizzBuzzWhizzBangNumbers)(
+      "returns 'FizzBuzzWhizzBang' when the number is divisible by 3 and 5",
+      (number) => {
+        const expected = "FizzBuzzWhizzBang";
+
+        const actual = getNumber(number);
+
+        expect(actual).toEqual(expected);
+      }
+    );
+
+    test.each(fizzBuzzBangNumbers)(
+      "returns 'FizzBuzzBang' when the number is divisible by 3 and 5",
+      (number) => {
+        const expected = "FizzBuzzBang";
 
         const actual = getNumber(number);
 
